@@ -12,6 +12,8 @@ const store = require("./lib/store");
 const { limit } = require("./lib/ratelimit");
 const { havKm, isLatLon } = require("./lib/geo");
 const provider = require("./lib/rail-provider");
+const railHelp = require("./lib/rail-help");
+const ai = require("./lib/ai-provider");
 
 const BASE = __dirname;
 const MIME = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".webmanifest": "application/manifest+json", ".xml": "application/xml", ".txt": "text/plain" };
@@ -224,6 +226,22 @@ async function handleApi(req, res) {
     store.saveEvents(all.slice(0, 1000));
     return send(res, 200, { ok: true });
   }
+  if (p === "/api/chat" && req.method === "POST") {
+    const b = await readJson(req);
+    const q = String(b.q || "").trim().slice(0, 500);
+    if (!q) return send(res, 400, { ok: false, error: "empty-question" });
+    // 1) Built-in rail facts first: deterministic, honest, instant.
+    const local = railHelp.helpAnswer(q);
+    if (local) return send(res, 200, { reply: local.text, source: "builtin" });
+    // 2) Optional LLM provider (needs AI_API_KEY server-side; never in the browser).
+    try {
+      const aiChat = createAiChat();
+      const answer = await aiChat([{ role: "user", content: q }]);
+      if (answer) return send(res, 200, { reply: answer, source: "ai" });
+    } catch (_) {}
+    // 3) Honest handoff — never invent answers.
+    return send(res, 200, { handoff: true, url: "https://enquiry.indianrail.gov.in/mntes/", msg: "I can answer common questions about Tatkal, refunds, food, stations and bookings. For live PNR or train status, use official NTES.", source: "builtin" });
+  }
   if (p === "/api/account" && req.method === "DELETE") {
     // Delete-my-data: client sends phone; server drops matching alerts/vendors/otp. Trips are anonymous IDs.
     const b = await readJson(req);
@@ -270,4 +288,7 @@ if (require.main === module) {
   const port = process.env.PORT || 8906;
   server.listen(port, () => console.log("RailBook LP6 on http://localhost:" + port));
 }
-module.exports = { server, handleApi };
+// /api/chat provider call is bound once per process (needs AI_API_KEY server-side).
+// Lazy + exported so tests can stub it without a live provider.
+const createAiChat = ai.chat();
+module.exports = { server, handleApi, createAiChat };

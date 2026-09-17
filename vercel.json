@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/**/*.js": {
-      "includeFiles": ["data/*.json", "db/seed.json", "lib/*.js", "serve.js"]
+      "includeFiles": "data/*.json"
     }
   },
   "headers": [

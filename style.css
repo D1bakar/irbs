@@ -1,4 +1,3 @@
-/* RailBook LP6 */
 :root {
   --canvas: #f4f6fa;
   --surface: #ffffff;
@@ -511,7 +510,7 @@ body.text-only .reveal { opacity: 1 !important; transform: none !important; filt
 }
 
 @media (max-width:960px){.hero-grid{display:flex;flex-direction:column}.hero-grid .card{order:-1}.hero-media{height:180px;min-height:180px}}
-@media (max-width:680px){.field-row{grid-template-columns:1fr 1fr;gap:8px}.field input,.field select{font-size:16px}.journey-box .field input{padding-right:62px}.journey-box #swap{width:44px;height:44px}.journey-box .field .mic{right:60px}.tabs button{min-height:44px}.btn-lg{min-height:48px}.pop button,.sortbar button,.chipbar button{min-height:44px}.strip-inner a{min-height:56px}#results{max-height:52vh}table.tbl{min-width:0;font-size:.82rem}.tbl th,.tbl td{padding:8px}}
+@media (max-width:680px){.field-row{grid-template-columns:1fr 1fr;gap:8px}.field input,.field select{font-size:16px}.journey-box .field input{padding-right:62px}.journey-box #swap{width:44px;height:44px}.tabs button{min-height:44px}.pop button,.sortbar button,.chipbar button{min-height:44px}.strip-inner a{min-height:56px}#results{max-height:52vh}table.tbl{min-width:0;font-size:.82rem}.tbl th,.tbl td{padding:8px}}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

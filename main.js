@@ -1275,7 +1275,7 @@ try { window.__paintDisplay = paintHeroDisplay; } catch (_) {}
   go.addEventListener('click', run);
   var stInput = document.getElementById('stInput');
   if (stInput) stInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); run(); } });
-  // GPS nearby.
+  // GPS.
   var geoBtn = document.getElementById('stGeo');
   if (geoBtn) geoBtn.addEventListener('click', function () {
     var msg = document.getElementById('stGeoMsg');
@@ -1286,9 +1286,9 @@ try { window.__paintDisplay = paintHeroDisplay; } catch (_) {}
     geoBtn.disabled = true;
     var done = false;
     function fin(fn) { if (done) return; done = true; geoBtn.disabled = false; fn(); }
-    var timer = setTimeout(function () { fin(function () { say('Timed out — turn on GPS.'); }); }, 12000);
+    var tm = setTimeout(function () { fin(function () { say('Timed out — turn on GPS.'); }); }, 12000);
     navigator.geolocation.getCurrentPosition(function (pos) {
-      clearTimeout(timer);
+      clearTimeout(tm);
       fin(function () {
         if (!pos || !pos.coords) { say('No location — search manually.'); return; }
         geoPos = { lat: Math.round(pos.coords.latitude * 1e4) / 1e4, lon: Math.round(pos.coords.longitude * 1e4) / 1e4 };
@@ -1297,7 +1297,7 @@ try { window.__paintDisplay = paintHeroDisplay; } catch (_) {}
         run();
       });
     }, function (err) {
-      clearTimeout(timer);
+      clearTimeout(tm);
       fin(function () {
         var c = err && err.code;
         say(c === 1 ? 'Denied — allow Location, then retry.' : c === 2 ? 'Unavailable — turn on GPS.' : 'Try again, or search manually.');
