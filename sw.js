@@ -2,7 +2,7 @@
 // POST /api/* passes through; offline writes are queued client-side (see main.js outbox) and
 // retried on `sync` / online event. No fake data here.
 var V = "railbook-v6";
-var SHELL = ["index.html", "tatkal.html", "refunds.html", "pnr-help.html", "live-help.html", "catering.html", "concessions.html", "contact.html", "terms.html", "privacy.html", "cookies.html", "404.html", "stations.html", "specials.html", "alerts.html", "stories.html", "vendors.html", "style.css", "config.js", "api.js", "main.js", "lang.js", "analytics.js", "consent.js", "handoff.js", "outbox.js", "privacy.js", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-192.svg", "icon-512.svg", "og-image.svg", "robots.txt", "sitemap.xml"];
+var SHELL = ["index.html", "tatkal.html", "refunds.html", "pnr-help.html", "live-help.html", "catering.html", "concessions.html", "contact.html", "terms.html", "privacy.html", "cookies.html", "404.html", "stations.html", "specials.html", "alerts.html", "stories.html", "vendors.html", "style.css", "chat.css", "config.js", "api.js", "main.js", "lang.js", "analytics.js", "consent.js", "handoff.js", "outbox.js", "privacy.js", "chat.js", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-192.svg", "icon-512.svg", "og-image.svg", "robots.txt", "sitemap.xml"];
 self.addEventListener("install", function (e) {
   e.waitUntil(caches.open(V).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));
 });
