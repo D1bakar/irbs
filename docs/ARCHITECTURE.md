@@ -11,4 +11,5 @@ Static frontend (17 HTML, no build) + same-origin `/api/*` serverless.
 - PNR/live: `POST /api/pnr|live` → `{handoff:true, url: NTES}`. No fake coach/seat.
 - Offline: `sw.js` network-first 3s timeout + `RB_OUTBOX` (`outbox.js`) flush on `online` / `sync:rb-outbox`.
 - Privacy: `consent.js` (`rb-consent-v1`), `privacy.js` TTL prune + `DELETE /api/account`, `analytics.js` beacons only with consent.
+- AI chat: `chat.js`+`chat.css` floating widget (all 17 pages) → `POST /api/chat`. Order: built-in rail facts (`lib/rail-help.js`) → optional LLM (`lib/ai-provider.js`, OpenAI-compatible, key server-side only) → honest NTES handoff. Never invents PNR/live/fares. Rate-limited like all writes.
 - Security headers: `vercel.json` + `_headers` + `serve.js secHeaders` (CSP, HSTS, X-Frame DENY).

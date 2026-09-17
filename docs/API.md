@@ -15,5 +15,6 @@ Base: same-origin. All POST JSON, `no-store`.
 - `POST /api/auth/request {phone}` → `{ok, expInSec, devCode?}`
 - `POST /api/auth/verify {phone,code}` → `{ok, token}` + `Set-Cookie rb_session`
 - `POST /api/events {name,meta?}` → `{ok}` (nameless counters)
+- `POST /api/chat {q}` → `{reply, source:"builtin"|"ai"}` or `{handoff:true, url, msg}` · 400 `empty-question` · AI optional via `AI_PROVIDER/AI_API_BASE/AI_API_KEY` (key server-side only; without it, built-in rail facts + honest handoff, never invented answers)
 - `DELETE /api/account {phone?}` → `{ok, deleted}` + clears cookie
 - `GET /api/checkout?plan=` → `{ok, plan, url}` (hosted stub)

@@ -29,10 +29,22 @@ async function main() {
     ok(sp.status === 200 && sp.body.includes("chhath"), "api specials");
     const pnr = await fetchJson(`http://localhost:${port}/api/pnr`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pnr: "1234567890" }) });
     ok(pnr.status === 200 && pnr.body.includes("handoff"), "api pnr handoff (no fake)");
+    // chat: built-in answer, honest handoff, input validation, route registered via /api/health
+    const ch1 = await fetchJson(`http://localhost:${port}/api/chat`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ q: "when does tatkal open" }) });
+    ok(ch1.status === 200 && ch1.body.includes("\"source\":\"builtin\""), "api chat builtin answer");
+    const ch2 = await fetchJson(`http://localhost:${port}/api/chat`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ q: "what is the meaning of life" }) });
+    ok(ch2.status === 200 && ch2.body.includes("handoff") && ch2.body.includes("enquiry.indianrail.gov.in"), "api chat honest handoff for unknown");
+    const ch3 = await fetchJson(`http://localhost:${port}/api/chat`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ q: "" }) });
+    ok(ch3.status === 400, "api chat rejects empty question");
     const idx = await fetchJson(`http://localhost:${port}/index.html`);
     ok(idx.status === 200 && idx.body.includes('rel="canonical"'), "index has canonical");
     ok(idx.body.includes("RailBook") && !idx.body.includes("IRCTC Concept"), "index rebranded");
     ok(idx.body.includes("consent.js") && idx.body.includes("handoff.js"), "index loads LP6 scripts");
+    ok(idx.body.includes('src="chat.js"') && idx.body.includes('href="chat.css"'), "index loads chat widget");
+    const chatJs = await fetchJson(`http://localhost:${port}/chat.js`);
+    ok(chatJs.status === 200 && chatJs.body.includes("/api/chat"), "chat.js served");
+    const chatCss = await fetchJson(`http://localhost:${port}/chat.css`);
+    ok(chatCss.status === 200 && chatCss.body.includes(".chat-fab"), "chat.css served");
     ok((idx.headers["content-security-policy"] || "").includes("default-src"), "CSP header present");
   } catch (e) { console.log("FAIL smoke exception " + e.message); fail++; }
   finally { try { child.kill(); } catch (_) {} }

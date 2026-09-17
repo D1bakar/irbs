@@ -64,3 +64,34 @@ test("full directory finds any real station", () => {
   assert.ok(byCode("GHY") && typeof byCode("GHY").lat === "number", "finds GUWAHATI (GHY) with coords");
   for (const s of full.slice(0, 500)) assert.equal(!!V.isStation(s), true, "bad dir station " + s.code);
 });
+// ---- LP6 chat: built-in helper + optional AI provider ----
+test("rail-help answers common rail questions deterministically", () => {
+  const H = require("../lib/rail-help");
+  for (const q of ["When does Tatkal open?", "what is my pnr status", "is my train late?", "how do refunds work", "food on train", "how to book a ticket", "seat availability", "railway helpline number", "platform amenities at Howrah"]) {
+    const a = H.helpAnswer(q);
+    assert.ok(a && a.text && a.topic, "answered: " + q);
+    assert.ok(a.text.length > 30 && a.text.length < 600, "sane length for: " + q);
+  }
+  assert.equal(H.helpAnswer("who is the prime minister of india"), null, "unknown topic -> null");
+  assert.equal(H.helpAnswer(""), null, "empty -> null");
+  // deterministic: same question, same answer
+  assert.equal(H.helpAnswer("tatkal") && H.helpAnswer("tatkal").text === H.helpAnswer("TATKAL").text, true, "deterministic");
+});
+test("rail-help never invents live data; points to official sources", () => {
+  const H = require("../lib/rail-help");
+  const pnr = H.helpAnswer("pnr status please");
+  assert.ok(pnr.text.includes("enquiry.indianrail.gov.in") || pnr.text.includes("NTES"), "PNR answer points to NTES");
+  assert.ok(!/\bCNF\b.*confirmed for you|your PNR is/i.test(pnr.text), "no invented PNR status");
+});
+test("ai-provider disabled without env, chat() yields null then fallback", () => {
+  const A = require("../lib/ai-provider");
+  const saved = { ...process.env };
+  delete process.env.AI_PROVIDER; delete process.env.AI_API_BASE; delete process.env.AI_API_KEY;
+  delete process.env.MISTRAL_API_KEY; delete process.env.OPENAI_API_KEY;
+  assert.equal(A.enabled(), false, "off by default");
+  const chat = A.chat();
+  return chat([{ role: "user", content: "hi" }]).then((r) => {
+    assert.equal(r, null, "returns null when disabled");
+    process.env = saved;
+  });
+});

@@ -52,6 +52,24 @@ for (const k of ["selectBtn","bkName","bkAge","confirmBtn","bkDone","chartIn","l
   ok(c >= 8, `lang key ${k} in 8 langs (found ${c})`);
 }
 // 4. api contract (LP5: 9-key frozen v5)
+// LP6 chat: widget files exist, every page loads them, lang keys in 8 langs,
+// sw precaches them, api/chat route exists (honest: no fake PNR/live from chat).
+for (const f of ["chat.js", "chat.css", "api/chat.js", "lib/ai-provider.js", "lib/rail-help.js"]) ok(fs.existsSync(path.join(base, f)), "exists " + f);
+for (const f of htmlFiles) {
+  const t = fs.readFileSync(path.join(base, f), "utf8");
+  ok(t.includes('href="chat.css"'), f + " loads chat.css");
+  ok(t.includes('<script src="chat.js"></script>'), f + " loads chat.js");
+}
+ok(fs.readFileSync(path.join(base, "sw.js"), "utf8").includes('"chat.js"'), "sw caches chat.js");
+ok(fs.readFileSync(path.join(base, "sw.js"), "utf8").includes('"chat.css"'), "sw caches chat.css");
+ok(fs.readFileSync(path.join(base, "serve.js"), "utf8").includes('"/api/chat"'), "serve has /api/chat route");
+for (const k of ["chatOpen", "chatTitle", "chatSub", "chatPh", "chatSend", "chatClose", "chatHello", "chatBusy", "chatOffline", "chatRetry", "chatHandoff", "chatErr"]) {
+  const c = (lang.match(new RegExp(k + '\\s*:', "g")) || []).length;
+  ok(c >= 8, `lang key ${k} in 8 langs (found ${c})`);
+}
+const railHelp = fs.readFileSync(path.join(base, "lib/rail-help.js"), "utf8");
+ok(railHelp.includes("NTES") && railHelp.includes("irctc.co.in"), "rail-help answers carry official links");
+ok(!/mockPnr|fakePnr|invent/.test(fs.readFileSync(path.join(base, "lib/ai-provider.js"), "utf8").split("//")[0]), "ai-provider makes no fake data claims");
 const api = fs.readFileSync(path.join(base, "api.js"), "utf8");
 for (const m of ["searchTrains","checkPnr","trainLive","createBooking","readBookings","searchStations","listSpecials","subscribeAlert","createVendorDraft","removeAlert","auth","requestCode","verifyCode","isTrainList","isStation","isSpecial","logFallback"]) ok(api.includes(m), "api has " + m);
 const main = fs.readFileSync(path.join(base, "main.js"), "utf8");
@@ -240,6 +258,7 @@ ok(fs.readFileSync(path.join(base, "lib/handler.js"), "utf8").includes("handleAp
 const vercel = fs.readFileSync(path.join(base, "vercel.json"), "utf8");
 ok(vercel.includes("includeFiles") && vercel.includes("data/*.json"), "vercel bundles data/*.json with functions");
 ok(fs.readFileSync(path.join(base, "manifest.webmanifest"), "utf8").includes("maskable"), "manifest has maskable icons");
+ok(fs.readFileSync(path.join(base, "api/chat.js"), "utf8").includes('require("../lib/handler")'), "api/chat delegates to lib/handler");
 ok(fs.readFileSync(path.join(base, "robots.txt"), "utf8").includes("https://"), "robots has absolute sitemap");
 ok(sw.includes("railbook-v6"), "sw versioned lp6");
 console.log(fail ? `\n${fail} FAILURES` : "\nALL GATES PASS");
