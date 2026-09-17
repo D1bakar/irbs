@@ -1,0 +1,86 @@
+/* RailBook LP6 chat widget styles. Separate file: style.css is pinned <45KB by tests/run.js.
+   Reuses the site's design tokens (style.css :root). */
+.chat-fab {
+  position: fixed; right: 22px; bottom: 82px; z-index: 60;
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--brand); color: #fff;
+  font-size: 1.25rem; line-height: 1; cursor: pointer;
+  box-shadow: var(--shadow-lg); transition: all .3s var(--ease);
+}
+.chat-fab:hover { background: var(--brand-dark); }
+.chat-fab:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.chat-fab.open { transform: rotate(90deg); }
+
+.chat-panel {
+  position: fixed; right: 16px; bottom: 142px; z-index: 60;
+  width: min(360px, calc(100vw - 32px)); max-height: min(70vh, 520px);
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.chat-head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+  padding: 12px 14px; border-bottom: 1px solid var(--line);
+  background: var(--brand-soft);
+}
+.chat-head-t strong { display: block; font-size: .95rem; color: var(--ink); }
+.chat-sub { color: var(--muted); font-size: .75rem; }
+.chat-x {
+  border: 0; background: transparent; color: var(--muted);
+  font-size: 1.4rem; line-height: 1; cursor: pointer; min-width: 36px; min-height: 36px;
+  border-radius: 10px;
+}
+.chat-x:hover { color: var(--ink); background: var(--canvas); }
+.chat-x:focus-visible { outline: 3px solid var(--brand); outline-offset: 1px; }
+
+.chat-log { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px; background: var(--canvas); }
+.chat-msg { display: flex; flex-direction: column; align-items: flex-start; max-width: 88%; }
+.chat-msg.me { align-self: flex-end; align-items: flex-end; }
+.chat-bubble {
+  padding: 8px 12px; border-radius: 14px; font-size: .88rem; line-height: 1.45;
+  overflow-wrap: anywhere; white-space: pre-wrap;
+}
+.chat-msg.bot .chat-bubble { background: var(--surface); border: 1px solid var(--line); color: var(--ink); border-bottom-left-radius: 4px; }
+.chat-msg.me .chat-bubble { background: var(--brand); color: #fff; border-bottom-right-radius: 4px; }
+.chat-bubble a { color: var(--brand); text-decoration: underline; }
+.chat-msg.me .chat-bubble a { color: #fff; }
+.chat-cta {
+  margin-top: 4px; font-size: .8rem; font-weight: 600; text-decoration: none;
+  padding: 6px 12px; border-radius: 999px; background: var(--brand-soft); color: var(--brand);
+  border: 1px solid var(--brand);
+}
+.chat-cta:hover { background: var(--brand); color: #fff; }
+
+.chat-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--line); background: var(--surface); }
+.chat-in {
+  flex: 1; min-height: 44px; padding: 0 12px; font: inherit; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 12px; background: var(--canvas);
+}
+.chat-in:focus { outline: none; border-color: var(--brand); background: var(--surface); }
+.chat-go {
+  min-height: 44px; padding: 0 16px; border: 0; border-radius: 12px;
+  background: var(--brand); color: #fff; font-weight: 600; cursor: pointer; font: inherit;
+}
+.chat-go:hover { background: var(--brand-dark); }
+.chat-go:disabled { opacity: .55; cursor: wait; }
+.chat-go:focus-visible, .chat-in:focus-visible { outline: 3px solid var(--brand); outline-offset: 1px; }
+
+/* Mirror #toTop shifts so the fab never sits under sticky bars. */
+body.has-sticky .chat-fab { bottom: 150px; }
+body.has-sticky .chat-panel { bottom: 210px; }
+@media (max-width: 680px) {
+  .chat-fab { right: 16px; bottom: 86px; }
+  body.has-sticky .chat-fab { bottom: 160px; }
+  body.has-sticky .chat-panel { bottom: 220px; }
+  .chat-panel { right: 12px; }
+  /* keep back-to-top clear of the chat fab (style.css pins it at 86px) */
+  #toTop { bottom: 146px; }
+  body.has-sticky #toTop { bottom: 220px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-fab, .chat-panel { transition: none; }
+  .chat-fab.open { transform: none; }
+}
+/* Text-only mode keeps the widget but strips decoration. */
+body.text-only .chat-fab { background: var(--ink); }
