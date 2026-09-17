@@ -1,0 +1,18 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tests/run.js
+      - run: node --test tests/unit.js
+      - run: node tests/e2e-smoke.js
+      - run: node tests/a11y.js
+      - run: node tests/perf.js
+      - run: node scripts/lint.js

@@ -1,0 +1,20 @@
+{
+  "name": "railbook-lp6",
+  "version": "6.0.0",
+  "description": "RailBook LP6 — legal info + planning + alerts + vendor SaaS. Static frontend + serverless /api.",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node tests/run.js && node --test tests/unit.js",
+    "test:all": "node tests/run.js && node --test tests/unit.js && node tests/e2e-smoke.js && node tests/a11y.js && node tests/perf.js",
+    "serve": "node serve.js",
+    "serve:api": "node serve.js",
+    "lint": "node scripts/lint.js",
+    "sitemap": "node scripts/sitemap.js",
+    "links": "node scripts/links.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

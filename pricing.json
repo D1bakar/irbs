@@ -1,0 +1,10 @@
+{
+  "currency": "INR",
+  "plans": [
+    { "id": "starter", "name": "Starter", "price": 0, "listings": 1, "features": ["directory listing", "1 draft"] },
+    { "id": "plus", "name": "Plus", "price": 499, "per": "mo", "listings": 5, "features": ["priority", "analytics"] },
+    { "id": "pro", "name": "Pro", "price": 1499, "per": "mo", "listings": 20, "features": ["leads inbox", "API"] }
+  ],
+  "checkout": "hosted-only (Razorpay/Stripe Payment Links). No card data touches RailBook servers.",
+  "affiliate": "Continue on IRCTC links may earn referral fees where allowed. Disclosed in UI."
+}

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>RailBook — Book Trains Faster</title>
+  <meta name="description" content="A polished booking concept: search trains, check PNR and live status in seconds." />
+  <meta property="og:title" content="RailBook — Book Trains Faster" />
+  <meta property="og:description" content="Search trains, check PNR and live status in seconds. Sample data demo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://railbook.example.com/og-image.svg" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
+  <meta name="theme-color" content="#0f3d9e" />
+  <link rel="canonical" href="https://railbook.example.com/index.html" />
+  <meta property="og:url" content="https://railbook.example.com/index.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" data-consent="functional" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip" href="#book">Skip to booking</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <header class="site" id="siteHeader">
+    <div class="wrap site-inner">
+      <a class="brand" href="#top">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="5" y="3" width="14" height="13" rx="3.5"/><path d="M5 10.5h14M9.5 20l-1.8 1.8M14.5 20l1.8 1.8"/></svg>
+        </span>
+        <strong>RailBook</strong>
+      </a>
+      <nav aria-label="Primary" id="mainNav">
+        <a href="#book">Book</a>
+        <a href="stations.html">Stations</a>
+        <a href="specials.html">Specials</a>
+        <a href="#help">Help</a>
+      </nav>
+      <div class="site-cta">
+        <a class="signin" href="#book">Sign in</a>
+        <a class="btn btn-primary" href="#book">Book tickets</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- FIRST PAGE: headline + booking side by side -->
+    <section class="hero" id="book">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Book trains <em>fast.</em></h1>
+          <p class="lede">Two stations and a date. Done — PNR and live status one tap away.</p>
+          <figure class="hero-media">
+            <img src="https://images.pexels.com/photos/15665580/pexels-photo-15665580.jpeg?auto=compress&cs=tinysrgb&w=1000" width="1000" height="667" alt="Express train running on railway tracks at sunset" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()" />
+          </figure>
+        </div>
+
+        <div class="card" aria-label="Railway services">
+          <div class="tabs" role="tablist" aria-label="Choose service">
+            <button type="button" role="tab" aria-selected="true" aria-controls="searchPane" data-tab="searchPane" id="tabSearch">Search</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="pnrPane" data-tab="pnrPane" id="tabPnr" tabindex="-1">PNR</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="livePane" data-tab="livePane" id="tabLive" tabindex="-1">Live</button>
+          </div>
+          <div id="searchPane" role="tabpanel" aria-labelledby="tabSearch" tabindex="0">
+          <div class="journey-box">
+            <div class="field">
+              <label for="from">From</label>
+              <input id="from" type="text" placeholder="Howrah" autocomplete="off" />
+              <div class="suggest" id="fromSuggest" hidden></div>
+            </div>
+            <div class="field">
+              <label for="to">To</label>
+              <input id="to" type="text" placeholder="New Delhi" autocomplete="off" />
+              <div class="suggest" id="toSuggest" hidden></div>
+            </div>
+            <button id="swap" class="swap" type="button" aria-label="Swap stations">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4v13M4 7l3-3 3 3M17 20V7M14 17l3 3 3-3"/></svg>
+            </button>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="date">Date</label>
+              <input id="date" type="date" />
+            </div>
+            <div class="field">
+              <label for="cls">Class</label>
+              <select id="cls">
+                <option>Sleeper (SL)</option>
+                <option selected>AC 3 Tier (3A)</option>
+                <option>AC 2 Tier (2A)</option>
+                <option>AC Chair Car (CC)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="quota">Quota</label>
+              <select id="quota">
+                <option selected>General</option>
+                <option>Tatkal</option>
+                <option>Premium Tatkal</option>
+                <option>Ladies</option>
+                <option>Senior Citizen</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pax">Passengers</label>
+              <select id="pax">
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+              </select>
+            </div>
+          </div>
+          <p class="error" id="err" role="alert" tabindex="-1"></p>
+          <button id="search" class="btn btn-primary btn-lg btn-block" type="button">Search trains</button>
+          <p class="trust-mini" data-i18n="heroTrust">UPI accepted · Instant PNR · 7,500+ stations</p>
+          <div id="results" aria-live="polite"></div>
+          </div>
+          <div id="pnrPane" role="tabpanel" aria-labelledby="tabPnr" tabindex="0" hidden>
+            <div class="field">
+              <label for="pnrInput">10-digit PNR</label>
+              <input id="pnrInput" maxlength="10" inputmode="numeric" placeholder="e.g. 6841523790" />
+            </div>
+            <button id="pnrBtn" class="btn btn-secondary btn-block" type="button">Check PNR</button>
+            <div id="pnrOut" aria-live="polite"></div>
+          </div>
+          <div id="livePane" role="tabpanel" aria-labelledby="tabLive" tabindex="0" hidden>
+            <div class="field">
+              <label for="liveInput">Train number or name</label>
+              <input id="liveInput" placeholder="e.g. 12301" />
+            </div>
+            <button id="liveBtn" class="btn btn-secondary btn-block" type="button">Track train</button>
+            <div id="liveOut" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip">
+      <div class="wrap strip-inner">
+        <a href="#book" data-goto-pnr>PNR status <span>10-second check</span></a>
+        <a href="#book" data-goto-live>Live running <span>Where is my train</span></a>
+        <a href="catering.html">Food on train <span>Order to your seat</span></a>
+        <a href="refunds.html">Refunds <span>TDR and cancellations</span></a>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Network at a glance">
+      <dl class="wrap stats-inner">
+        <div><dt data-count="1.4" data-suffix="M+" data-decimals="1">1.4M+</dt><dd data-i18n="statA">Bookings a day</dd></div>
+        <div><dt data-count="7500" data-suffix="+">7,500+</dt><dd data-i18n="statB">Stations</dd></div>
+        <div><dt data-count="92" data-suffix="%">92%</dt><dd data-i18n="statC">On-time trains</dd></div>
+        <div><dt>139</dt><dd data-i18n="statD">Rail helpline</dd></div>
+      </dl>
+      <div class="wrap stats-src">Figures indicative. Verify live status on IRCTC / NTES before travel.</div>
+    </section>
+
+    <section class="trustbar" aria-label="Official sources">
+      <div class="wrap trustbar-inner">
+        <span data-i18n="offSrc">Official sources:</span>
+        <a href="https://www.irctc.co.in" target="_blank" rel="noopener">IRCTC</a>
+        <a href="https://indianrail.gov.in" target="_blank" rel="noopener">Indian Railways</a>
+        <a href="https://enquiry.indianrail.gov.in" target="_blank" rel="noopener">NTES live status</a>
+        <a href="tel:139">139 RailHelp</a>
+        <a href="https://www.utsonmobile.indianrail.gov.in" target="_blank" rel="noopener">UTS tickets</a>
+        <span class="pay-badges" aria-label="Payments">UPI · Cards · Netbanking · <span id="envBadge">Demo data</span></span>
+      </div>
+    </section>
+
+    <section class="banners" aria-label="Campaigns">
+      <div class="wrap banner-grid">
+        <a class="banner-card b1" href="tatkal.html">
+          <img decoding="async" src="https://images.pexels.com/photos/37138401/pexels-photo-37138401.jpeg?auto=compress&cs=tinysrgb&w=1200" width="1200" height="800" alt="Two trains waiting at a sunset platform with a coach-position board" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()" />
+          <span class="banner-text"><strong data-i18n="ban1t">Tatkal in 10 seconds</strong><span data-i18n="ban1s">AC 10:00 · Non-AC 11:00 — the calm playbook</span></span>
+        </a>
+        <a class="banner-card b2" href="specials.html">
+          <img decoding="async" src="https://images.pexels.com/photos/36945718/pexels-photo-36945718.jpeg?auto=compress&cs=tinysrgb&w=1200" width="1200" height="800" alt="Traveller walking on Lucknow platform beside an orange train" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()" />
+          <span class="banner-text"><strong data-i18n="ban2t">Festival specials</strong><span data-i18n="ban2s">Chhath · Puja · Kumbh extra trains</span></span>
+        </a>
+        <a class="banner-card b3" href="contact.html">
+          <img decoding="async" src="https://images.pexels.com/photos/30292586/pexels-photo-30292586.jpeg?auto=compress&cs=tinysrgb&w=1200" width="1200" height="800" alt="Lit train and waiting passengers on a night platform" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()" />
+          <span class="banner-text"><strong data-i18n="ban3t">Alone at night?</strong><span data-i18n="ban3s">139 works day and night — keep PNR ready</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="guides" id="guides">
+      <div class="wrap">
+        <p class="eyebrow">02 — Travel procedure</p>
+        <h2 class="h2">Do it right at the station.</h2>
+        <p class="muted">Three checks experienced passengers always do. Tap to start.</p>
+        <div class="guide-grid">
+          <article class="guide-card">
+            <img decoding="async" src="https://images.pexels.com/photos/12401679/pexels-photo-12401679.jpeg?auto=compress&cs=tinysrgb&w=400" width="84" height="84" alt="Close-up of a yellow coach showing its serial number" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2784%27 height=%2784%27%3E%3Crect width=%2784%27 height=%2784%27 rx=%2712%27 fill=%27%23eef2fb%27/%3E%3Ctext x=%2742%27 y=%2757%27 font-size=%2736%27 text-anchor=%27middle%27%3E%F0%9F%9A%82%3C/text%3E%3C/svg%3E'" />
+            <div>
+              <strong>Find your coach in 10 seconds</strong>
+              <p>Coach number is on your SMS and painted on the coach. Find B4, S6 like these digits.</p>
+              <button type="button" class="linklike" data-action="pnr">Check my PNR →</button>
+              <a class="linklike" href="pnr-help.html" style="margin-left:10px">Guide</a>
+            </div>
+          </article>
+          <article class="guide-card">
+            <img decoding="async" src="https://images.pexels.com/photos/37392744/pexels-photo-37392744.jpeg?auto=compress&cs=tinysrgb&w=400" width="84" height="84" alt="Traveller looking out of train window" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2784%27 height=%2784%27%3E%3Crect width=%2784%27 height=%2784%27 rx=%2712%27 fill=%27%23eef2fb%27/%3E%3Ctext x=%2742%27 y=%2757%27 font-size=%2736%27 text-anchor=%27middle%27%3E%F0%9F%9A%82%3C/text%3E%3C/svg%3E'" />
+            <div>
+              <strong>Where is my train right now?</strong>
+              <p>Type the train number one time. See last stop and next stop.</p>
+              <button type="button" class="linklike" data-action="live">Track my train →</button>
+              <a class="linklike" href="live-help.html" style="margin-left:10px">Guide</a>
+            </div>
+          </article>
+          <article class="guide-card">
+            <img decoding="async" src="https://images.pexels.com/photos/18687529/pexels-photo-18687529.jpeg?auto=compress&cs=tinysrgb&w=400" width="84" height="84" alt="Passengers boarding quickly" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2784%27 height=%2784%27%3E%3Crect width=%2784%27 height=%2784%27 rx=%2712%27 fill=%27%23eef2fb%27/%3E%3Ctext x=%2742%27 y=%2757%27 font-size=%2736%27 text-anchor=%27middle%27%3E%F0%9F%9A%82%3C/text%3E%3C/svg%3E'" />
+            <div>
+              <strong>Tatkal made easy</strong>
+              <p>AC at 10:00, non-AC at 11:00, one day before. Keep From/To ready above.</p>
+              <button type="button" class="linklike" data-action="book">Go to booking →</button>
+              <a class="linklike" href="tatkal.html" style="margin-left:10px">Rules</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="trains" class="section">
+      <div class="wrap narrow">
+        <p class="eyebrow">03 — Popular</p>
+        <h2 class="h2">Popular from Howrah</h2>
+        <p class="muted">Tap a route to load it and search immediately.</p>
+        <div id="popular"></div>
+      </div>
+    </section>
+
+    <section id="tatkal-check" class="section section-tight tc-section">
+      <div class="wrap narrow">
+        <p class="eyebrow">Tatkal readiness</p>
+        <h2 class="h2">Will you get that Tatkal seat?</h2>
+        <p class="muted">Tick what is true. Get your score + exact fixes.</p>
+        <div class="card tc-card" aria-label="Tatkal readiness check">
+          <div id="tcQs" class="tc-list"></div>
+          <button id="tcGo" class="btn btn-primary btn-block" type="button">Check my score</button>
+          <div id="tcOut" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="help" class="section section-tight">
+      <div class="wrap narrow">
+        <p class="eyebrow">04 — Support</p>
+        <h2 class="h2">Help fast. No long wait.</h2>
+        <p class="muted">Helpline 139 &middot; Food help 1800-1034-139 &middot; <a href="contact.html">All contacts</a></p>
+        <details><summary>When does Tatkal open?</summary><p>One day before the train leaves &mdash; 10:00 for AC, 11:00 for non-AC. <a href="tatkal.html">Full Tatkal rules</a></p></details>
+        <details><summary>How do refunds work?</summary><p>If the train is cancelled, money comes back on its own. For other cases, fill the TDR form. <a href="refunds.html">Refunds &amp; TDR guide</a></p></details>
+        <details><summary>Where is my PNR?</summary><p>10-digit number on SMS, email and My Bookings. <a href="pnr-help.html">PNR guide</a></p></details>
+        <details><summary>Is my train late?</summary><p>Type the number one time to see last stop and next stop. <a href="live-help.html">Live status guide</a></p></details>
+      </div>
+    </section>
+
+  </main>
+    <footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <span class="foot-name">
+        <span class="foot-emblem" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="11" fill="#ffffff"/><g stroke="#06038D" stroke-width="0.8"><line x1="2" y1="12" x2="22" y2="12"/><line x1="2.3" y1="9.4" x2="21.7" y2="14.6"/><line x1="3.3" y1="7" x2="20.7" y2="17"/><line x1="4.9" y1="4.9" x2="19.1" y2="19.1"/><line x1="7" y1="3.3" x2="17" y2="20.7"/><line x1="9.4" y1="2.3" x2="14.6" y2="21.7"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="9.4" y1="21.7" x2="14.6" y2="2.3"/><line x1="7" y1="20.7" x2="17" y2="3.3"/><line x1="4.9" y1="19.1" x2="19.1" y2="4.9"/><line x1="3.3" y1="17" x2="20.7" y2="7"/><line x1="2.3" y1="14.6" x2="21.7" y2="9.4"/></g><circle cx="12" cy="12" r="10.2" fill="none" stroke="#06038D" stroke-width="1"/><circle cx="12" cy="12" r="1.7" fill="#06038D"/></svg>
+        </span>
+        <strong>RailBook — passenger first</strong>
+      </span>
+      <p>Search, PNR, live status, refunds and Tatkal procedure in one place. Verify on official IRCTC / NTES before travel.</p>
+      <p class="disclaimer" data-i18n="disclaimer">Independent concept — not affiliated with IRCTC or Indian Railways. Sample data until backend is connected.</p>
+      <p class="foot-meta">Sample data · © <span id="year">2026</span></p>
+    </div>
+    <div>
+      <nav aria-label="Book">
+        <h3 data-i18n="footBook">Book</h3>
+        <a href="index.html?tab=search#book" data-i18n="flSearch">Search trains</a>
+        <a href="index.html?tab=pnr#book" data-i18n="flPnr">PNR status</a>
+        <a href="index.html?tab=live#book" data-i18n="flLive">Live running</a>
+        <a href="tatkal.html" data-i18n="flTatkal">Tatkal rules</a>
+      </nav>
+    </div>
+    <div>
+      <nav aria-label="Explore">
+        <h3 data-i18n="footServ">Explore</h3>
+        <a href="stations.html" data-i18n="flStations">Stations</a>
+        <a href="specials.html" data-i18n="flSpecials">Specials</a>
+        <a href="alerts.html" data-i18n="flAlerts">Alerts</a>
+        <a href="stories.html" data-i18n="flStories">Stories</a>
+        <a href="vendors.html" data-i18n="flVendors">Vendors</a>
+      </nav>
+    </div>
+    <div>
+      <nav aria-label="Help and legal">
+        <h3 data-i18n="footLegal">Help &amp; legal</h3>
+        <a href="refunds.html" data-i18n="flRefunds">Refunds &amp; TDR</a>
+        <a href="concessions.html" data-i18n="flQuota">Quotas &amp; discounts</a>
+        <a href="contact.html" data-i18n="flContact">Contact &amp; 139</a>
+        <a href="terms.html" data-i18n="flTerms">Terms of use</a>
+        <a href="privacy.html" data-i18n="flPrivacy">Privacy</a>
+        <a href="cookies.html" data-i18n="flCookies">Cookies</a>
+        <button type="button" class="linklike foot-cookie" data-cookie-settings>Cookie settings</button>
+      </nav>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span class="foot-made">
+      <span data-i18n="footMade">Made for passengers across India</span>
+    </span>
+    <span class="foot-links">
+      <a href="sitemap.xml" data-i18n="footSitemap">Sitemap</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="tel:139" data-i18n="footRailHelp">139 RailHelp</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="https://www.irctc.co.in" target="_blank" rel="noopener">IRCTC</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="https://enquiry.indianrail.gov.in" target="_blank" rel="noopener">NTES</a>
+    </span>
+  </div>
+</footer>
+  <button id="toTop" type="button" aria-label="Back to top">&uarr;</button>
+
+  <script src="config.js"></script>
+  <script src="config.local.js" onerror="void 0"></script>
+  <script src="consent.js"></script>
+  <script src="api.js"></script>
+  <script src="lang.js"></script>
+  <script src="main.js"></script>
+  <script src="handoff.js"></script>
+  <script src="outbox.js"></script>
+  <script src="privacy.js"></script>
+  <script src="analytics.js"></script>
+</body>
+</html>

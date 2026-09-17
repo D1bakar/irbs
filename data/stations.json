@@ -1,0 +1,836 @@
+[
+  {
+    "code": "HWH",
+    "name": "Howrah Jn",
+    "state": "West Bengal",
+    "pf": 23,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 4,
+    "lat": 22.5849,
+    "lon": 88.3423
+  },
+  {
+    "code": "SDAH",
+    "name": "Sealdah",
+    "state": "West Bengal",
+    "pf": 21,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 7,
+    "lat": 22.5617,
+    "lon": 88.3634
+  },
+  {
+    "code": "KOAA",
+    "name": "Kolkata",
+    "state": "West Bengal",
+    "pf": 5,
+    "amen": [
+      "WiFi",
+      "Food"
+    ],
+    "km": 9,
+    "lat": 22.6052,
+    "lon": 88.3422
+  },
+  {
+    "code": "BWN",
+    "name": "Barddhaman Jn",
+    "state": "West Bengal",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 95,
+    "lat": 23.2416,
+    "lon": 87.8667
+  },
+  {
+    "code": "DGR",
+    "name": "Durgapur",
+    "state": "West Bengal",
+    "pf": 6,
+    "amen": [
+      "WiFi",
+      "Food"
+    ],
+    "km": 170,
+    "lat": 23.492,
+    "lon": 87.31
+  },
+  {
+    "code": "ASN",
+    "name": "Asansol Jn",
+    "state": "West Bengal",
+    "pf": 7,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 200,
+    "lat": 23.6838,
+    "lon": 86.9777
+  },
+  {
+    "code": "KGP",
+    "name": "Kharagpur Jn",
+    "state": "West Bengal",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 115,
+    "lat": 22.346,
+    "lon": 87.324
+  },
+  {
+    "code": "NJP",
+    "name": "New Jalpaiguri",
+    "state": "West Bengal",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 510,
+    "lat": 26.682,
+    "lon": 88.4429
+  },
+  {
+    "code": "NDLS",
+    "name": "New Delhi",
+    "state": "Delhi",
+    "pf": 16,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1450,
+    "lat": 28.6417,
+    "lon": 77.2207
+  },
+  {
+    "code": "DLI",
+    "name": "Delhi Jn (Old Delhi)",
+    "state": "Delhi",
+    "pf": 7,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1450,
+    "lat": 28.6605,
+    "lon": 77.2271
+  },
+  {
+    "code": "NZM",
+    "name": "Hazrat Nizamuddin",
+    "state": "Delhi",
+    "pf": 7,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1450,
+    "lat": 28.5899,
+    "lon": 77.3141
+  },
+  {
+    "code": "ANVT",
+    "name": "Anand Vihar Terminal",
+    "state": "Delhi",
+    "pf": 7,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1440,
+    "lat": 28.6509,
+    "lon": 77.3153
+  },
+  {
+    "code": "CNB",
+    "name": "Kanpur Central",
+    "state": "Uttar Pradesh",
+    "pf": 9,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1020,
+    "lat": 26.4545,
+    "lon": 80.3518
+  },
+  {
+    "code": "LKO",
+    "name": "Lucknow Charbagh",
+    "state": "Uttar Pradesh",
+    "pf": 9,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1000,
+    "lat": 26.9155,
+    "lon": 80.9409
+  },
+  {
+    "code": "BSB",
+    "name": "Varanasi Jn",
+    "state": "Uttar Pradesh",
+    "pf": 9,
+    "amen": [
+      "Retiring room",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 690,
+    "lat": 25.3269,
+    "lon": 82.9857
+  },
+  {
+    "code": "DDU",
+    "name": "Pt Deen Dayal Upadhyaya Jn",
+    "state": "Uttar Pradesh",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 710,
+    "lat": 25.2765,
+    "lon": 83.1162
+  },
+  {
+    "code": "PRYJ",
+    "name": "Prayagraj Jn",
+    "state": "Uttar Pradesh",
+    "pf": 10,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 850,
+    "lat": 25.4358,
+    "lon": 81.8463
+  },
+  {
+    "code": "GKP",
+    "name": "Gorakhpur Jn",
+    "state": "Uttar Pradesh",
+    "pf": 10,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 900,
+    "lat": 26.7608,
+    "lon": 83.3812
+  },
+  {
+    "code": "AGC",
+    "name": "Agra Cantt",
+    "state": "Uttar Pradesh",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1350,
+    "lat": 27.1566,
+    "lon": 78.012
+  },
+  {
+    "code": "JHS",
+    "name": "Jhansi Jn",
+    "state": "Uttar Pradesh",
+    "pf": 7,
+    "amen": [
+      "Retiring room",
+      "Food"
+    ],
+    "km": 1150,
+    "lat": 25.4448,
+    "lon": 78.1828
+  },
+  {
+    "code": "PNBE",
+    "name": "Patna Jn",
+    "state": "Bihar",
+    "pf": 10,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 540,
+    "lat": 25.6022,
+    "lon": 85.1376
+  },
+  {
+    "code": "GAYA",
+    "name": "Gaya Jn",
+    "state": "Bihar",
+    "pf": 7,
+    "amen": [
+      "Retiring room",
+      "Food"
+    ],
+    "km": 460,
+    "lat": 24.8021,
+    "lon": 84.9997
+  },
+  {
+    "code": "DHN",
+    "name": "Dhanbad Jn",
+    "state": "Jharkhand",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 270,
+    "lat": 23.6543,
+    "lon": 86.2723
+  },
+  {
+    "code": "RNC",
+    "name": "Ranchi Jn",
+    "state": "Jharkhand",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 410,
+    "lat": 23.6857,
+    "lon": 85.2638
+  },
+  {
+    "code": "TATA",
+    "name": "Tatanagar Jn",
+    "state": "Jharkhand",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 250,
+    "lat": 22.768,
+    "lon": 86.1798
+  },
+  {
+    "code": "PURI",
+    "name": "Puri",
+    "state": "Odisha",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 500,
+    "lat": 19.8134,
+    "lon": 85.8314
+  },
+  {
+    "code": "BBS",
+    "name": "Bhubaneswar",
+    "state": "Odisha",
+    "pf": 6,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 440,
+    "lat": 20.2707,
+    "lon": 85.8395
+  },
+  {
+    "code": "ROU",
+    "name": "Rourkela Jn",
+    "state": "Odisha",
+    "pf": 7,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 320,
+    "lat": 22.2301,
+    "lon": 84.8054
+  },
+  {
+    "code": "GHY",
+    "name": "Guwahati",
+    "state": "Assam",
+    "pf": 7,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1000,
+    "lat": 26.1806,
+    "lon": 91.7507
+  },
+  {
+    "code": "CSMT",
+    "name": "Mumbai CSMT",
+    "state": "Maharashtra",
+    "pf": 18,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1960,
+    "lat": 18.9401,
+    "lon": 72.8355
+  },
+  {
+    "code": "BCT",
+    "name": "Mumbai Central",
+    "state": "Maharashtra",
+    "pf": 9,
+    "amen": [
+      "WiFi",
+      "Food"
+    ],
+    "km": 1965,
+    "lat": 18.9707,
+    "lon": 72.8194
+  },
+  {
+    "code": "LTT",
+    "name": "Lokmanya Tilak Terminus",
+    "state": "Maharashtra",
+    "pf": 7,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1970,
+    "lat": 19.07,
+    "lon": 72.8914
+  },
+  {
+    "code": "PUNE",
+    "name": "Pune Jn",
+    "state": "Maharashtra",
+    "pf": 6,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1800,
+    "lat": 18.5289,
+    "lon": 73.8744
+  },
+  {
+    "code": "BSL",
+    "name": "Bhusaval Jn",
+    "state": "Maharashtra",
+    "pf": 7,
+    "amen": [
+      "Retiring room",
+      "Food"
+    ],
+    "km": 1550,
+    "lat": 21.0438,
+    "lon": 75.7906
+  },
+  {
+    "code": "NGP",
+    "name": "Nagpur Jn",
+    "state": "Maharashtra",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1150,
+    "lat": 21.1519,
+    "lon": 79.0872
+  },
+  {
+    "code": "ADI",
+    "name": "Ahmedabad Jn",
+    "state": "Gujarat",
+    "pf": 9,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1650,
+    "lat": 23.0259,
+    "lon": 72.6063
+  },
+  {
+    "code": "BPL",
+    "name": "Bhopal Jn",
+    "state": "Madhya Pradesh",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1250,
+    "lat": 23.2649,
+    "lon": 77.4139
+  },
+  {
+    "code": "INDB",
+    "name": "Indore Jn",
+    "state": "Madhya Pradesh",
+    "pf": 6,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1500,
+    "lat": 22.7179,
+    "lon": 75.8071
+  },
+  {
+    "code": "JP",
+    "name": "Jaipur Jn",
+    "state": "Rajasthan",
+    "pf": 6,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1300,
+    "lat": 26.9161,
+    "lon": 75.7864
+  },
+  {
+    "code": "KOTA",
+    "name": "Kota Jn",
+    "state": "Rajasthan",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1350,
+    "lat": 25.2138,
+    "lon": 75.8792
+  },
+  {
+    "code": "AII",
+    "name": "Ajmer Jn",
+    "state": "Rajasthan",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "Food"
+    ],
+    "km": 1450,
+    "lat": 26.4502,
+    "lon": 74.6502
+  },
+  {
+    "code": "JU",
+    "name": "Jodhpur Jn",
+    "state": "Rajasthan",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1600,
+    "lat": 26.2741,
+    "lon": 73.0538
+  },
+  {
+    "code": "BKN",
+    "name": "Bikaner Jn",
+    "state": "Rajasthan",
+    "pf": 6,
+    "amen": [
+      "WiFi",
+      "Food"
+    ],
+    "km": 1550,
+    "lat": 28.0152,
+    "lon": 73.3068
+  },
+  {
+    "code": "UDZ",
+    "name": "Udaipur City",
+    "state": "Rajasthan",
+    "pf": 5,
+    "amen": [
+      "Retiring room",
+      "Food"
+    ],
+    "km": 1650,
+    "lat": 24.5855,
+    "lon": 73.7125
+  },
+  {
+    "code": "ASR",
+    "name": "Amritsar Jn",
+    "state": "Punjab",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1700,
+    "lat": 31.634,
+    "lon": 74.8723
+  },
+  {
+    "code": "LUD",
+    "name": "Ludhiana Jn",
+    "state": "Punjab",
+    "pf": 7,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1650,
+    "lat": 30.9126,
+    "lon": 75.8533
+  },
+  {
+    "code": "CDG",
+    "name": "Chandigarh Jn",
+    "state": "Chandigarh",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1600,
+    "lat": 30.3433,
+    "lon": 76.823
+  },
+  {
+    "code": "JAT",
+    "name": "Jammu Tawi",
+    "state": "Jammu & Kashmir",
+    "pf": 5,
+    "amen": [
+      "Retiring room",
+      "Food"
+    ],
+    "km": 1900,
+    "lat": 32.7026,
+    "lon": 74.8792
+  },
+  {
+    "code": "MAS",
+    "name": "Chennai Central",
+    "state": "Tamil Nadu",
+    "pf": 12,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1670,
+    "lat": 13.0825,
+    "lon": 80.275
+  },
+  {
+    "code": "MS",
+    "name": "Chennai Egmore",
+    "state": "Tamil Nadu",
+    "pf": 11,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1670,
+    "lat": 13.0791,
+    "lon": 80.2607
+  },
+  {
+    "code": "MDU",
+    "name": "Madurai Jn",
+    "state": "Tamil Nadu",
+    "pf": 7,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1950,
+    "lat": 9.918,
+    "lon": 78.111
+  },
+  {
+    "code": "CBE",
+    "name": "Coimbatore Jn",
+    "state": "Tamil Nadu",
+    "pf": 6,
+    "amen": [
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1850,
+    "lat": 11.0027,
+    "lon": 76.9842
+  },
+  {
+    "code": "ERS",
+    "name": "Ernakulam Jn",
+    "state": "Kerala",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 2000,
+    "lat": 9.9763,
+    "lon": 76.2868
+  },
+  {
+    "code": "TVC",
+    "name": "Thiruvananthapuram Central",
+    "state": "Kerala",
+    "pf": 5,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 2100,
+    "lat": 8.4865,
+    "lon": 76.926
+  },
+  {
+    "code": "SBC",
+    "name": "KSR Bengaluru City",
+    "state": "Karnataka",
+    "pf": 10,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1870,
+    "lat": 12.9789,
+    "lon": 77.5695
+  },
+  {
+    "code": "YPR",
+    "name": "Yesvantpur Jn",
+    "state": "Karnataka",
+    "pf": 6,
+    "amen": [
+      "WiFi",
+      "Food"
+    ],
+    "km": 1870,
+    "lat": 13.0357,
+    "lon": 77.5513
+  },
+  {
+    "code": "MYS",
+    "name": "Mysuru Jn",
+    "state": "Karnataka",
+    "pf": 6,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1900,
+    "lat": 12.3181,
+    "lon": 76.6542
+  },
+  {
+    "code": "VSKP",
+    "name": "Visakhapatnam Jn",
+    "state": "Andhra Pradesh",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 900,
+    "lat": 17.717,
+    "lon": 83.3164
+  },
+  {
+    "code": "BZA",
+    "name": "Vijayawada Jn",
+    "state": "Andhra Pradesh",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food"
+    ],
+    "km": 1250,
+    "lat": 16.5151,
+    "lon": 80.6321
+  },
+  {
+    "code": "SC",
+    "name": "Secunderabad Jn",
+    "state": "Telangana",
+    "pf": 8,
+    "amen": [
+      "Retiring room",
+      "WiFi",
+      "Food",
+      "Wheelchair"
+    ],
+    "km": 1550,
+    "lat": 17.4349,
+    "lon": 78.5017
+  }
+]

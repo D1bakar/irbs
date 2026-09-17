@@ -1,0 +1,4 @@
+[
+  {"no":12301,"name":"Rajdhani Express","dep":"16:55","arr":"10:05","dur":"17h 10m","days":"Daily","from":"HWH","to":"NDLS","date":"2026-10-01","cls":"AC 3 Tier (3A)","status":"Available","seats":24,"wl":0},
+  {"no":22895,"name":"Vande Bharat Exp","dep":"06:00","arr":"12:30","dur":"6h 30m","days":"Except Tue","from":"HWH","to":"NDLS","date":"2026-10-01","cls":"AC 3 Tier (3A)","status":"Available","seats":41,"wl":0}
+]
